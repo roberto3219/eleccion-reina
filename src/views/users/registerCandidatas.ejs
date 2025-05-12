@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head')%>
+<body>
+    <section class="center-container">
+    <div class="registro-container">
+        <h2>Registro de Candidatas</h2>
+        <ul class="errores">
+
+        </ul>
+        <form action="/users/registerCandidatas" method="post" enctype="multipart/form-data" id="formCandidata">
+          <section class="candidata_input_list">
+          <div class="input-group">
+            <i>👩</i>
+            <input type="text" placeholder="Nombre completo" name="nombre" id="nombre" required>
+          </div>
+          <div class="input-group">
+            <i>🆔</i>
+            <input type="text" placeholder="DNI" name="dni" id="dni" required>
+          </div>
+          <div class="input-group">
+            <i>📷​</i>
+            <input type="file" placeholder="foto de la princesa" name="imagenCandidata" required>
+          </div>
+          <div class="input-group">
+            <i>🎂</i>
+            <input type="number" placeholder="Edad" name="edad" id="edad" min="15" required>
+          </div>
+          <div class="input-group">
+            <i>📚​</i>
+            <input type="test" placeholder="Curso" name="curso" max="7" id="curso" required>
+          </div>
+          <div class="input-group">
+            <i>📧</i>
+            <input type="email" name="correo" placeholder="Correo electrónico" id="correo" required>
+          </div>
+    
+          <div class="input-group">
+            <i>📞</i>
+            <input type="tel" name="tel" id="tel" placeholder="Teléfono" required>
+          </div>
+    
+          <div class="input-group">
+            <i>📍</i>
+            <input type="text" name="provincia" id="provincia" placeholder="Provincia" required>
+          </div>
+    
+          <div class="input-group">
+            <i>🏙️</i>
+            <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" required>
+          </div>
+    
+          <div class="input-group">
+            <i>🏆</i>
+            <select required>
+              <option value="" disabled selected>Categoría</option>
+              <option value="simpatia">Miss Simpatía</option>
+              <option value="elegancia">Miss Elegancia</option>
+              <option value="pasarela">Miss Pasarela</option>
+              <option value="fotogenia">Miss Fotogenia</option>
+            </select>
+          </div>
+      </section>
+          <button class="btn" type="submit">Registrar candidata</button>
+        </form>
+    
+        <div class="link-extra">
+          <a href="/users/listCandidatas">Ver lista de candidatas</a>
+        </div>
+      </div>
+    </section>
+    <script src="/js/registerCandidatasValidacion.js"></script>
+</body>
+</html>

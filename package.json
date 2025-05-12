@@ -1,0 +1,28 @@
+{
+  "name": "eleccionreina",
+  "version": "1.0.0",
+  "description": "Es un proyecto para el profe suruguay",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "author": "Roberto Alfredo Llampa",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.1",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.10",
+    "sequelize": "^6.37.7"
+  }
+}
