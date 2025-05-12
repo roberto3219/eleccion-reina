@@ -83,6 +83,14 @@ module.exports = {
     loadRegisterCandidatas:async (req,res) => {
         let errores = validationResult(req)
         let saveImagen = req.file;
+        /* let candidatas = await db.Candidata.findAll({
+                    where:{ DNI : req.body.dni}
+                })
+        if(candidatas){
+            console.log("Hay alguien que ya tiene ese DNI")
+        }else{
+            console.log("Gracias por inscribirte")  ESTO LO HARE SI NO HAY DE OTRA, SI NO LO PUEDO HACER EN EL FRONT
+        } */
         console.log(req.body)
         console.log(errores)
         if(errores.isEmpty()){
@@ -98,6 +106,7 @@ module.exports = {
                     img_candidata:
                     saveImagen != undefined ? saveImagen.filename : "default.jpg",
                     curso:req.body.curso,
+                    voto:false,
                 })
                 res.redirect("/users/listCandidatas")
             }catch(error){
@@ -124,5 +133,19 @@ module.exports = {
         }catch(error){
             res.render("error",{error: "Problema conectando a la base de datos"})
         }
+    },
+    votar: async (req,res) => {
+        try{
+            const Candidatas = await db.Candidata.findAll()
+            res.render("users/votar",{
+                    usuario: req.session.userLogged,
+                    candidatas: Candidatas
+                })
+        }catch(e){
+            console.log(e)
+        }
+    },
+    votarLoad:async (req,res) => {
+
     }
 }

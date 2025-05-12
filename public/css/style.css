@@ -309,6 +309,92 @@ p {
   background-color: #6a00b8;
 }
 
+/* VOTAR */
+
+.votar {
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: #fefefe;
+}
+
+.votar h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #6a11cb;
+}
+
+.grid-candidatas {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.card-voto {
+  position: relative;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 1rem;
+  width: 180px;
+  cursor: pointer;
+  text-align: center;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.card-voto:hover {
+  border-color: #6a11cb;
+  box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+}
+
+.card-voto input[type="radio"] {
+  display: none;
+}
+
+.card-voto img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  border: 2px solid #6a11cb;
+}
+
+.card-voto span {
+  font-weight: bold;
+  display: block;
+}
+
+.card-voto input[type="radio"]:checked + img {
+  outline: 4px solid #6a11cb;
+}
+
+.mensaje-voto {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.btn-register {
+  background-color: #6a11cb;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  max-width: 500px;
+  transition: 0.3s;
+}
+
+.btn-register:hover {
+  background-color: #5310a8;
+}
+
+
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;

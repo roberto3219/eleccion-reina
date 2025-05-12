@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head')%>
+<body>
+        <%- include('../partials/header') %>
+        <main class="votar">
+    <h2>Elegí tu candidata a Princesa</h2>
+    <form method="post" action="/users/votar" id="votoForm">
+      <div class="grid-candidatas">
+        <% if(candidatas.length > 0) { %>
+          <% for(let i = 0; i < candidatas.length; i++){ %>
+          <label class="card-voto">
+            <input type="radio" name="candidata" value="<%= candidatas[i].nombre %>" />
+            <img src="/images/candidatas/<%= candidatas[i].img_candidata %>" alt="<%= candidatas[i].nombre %>">
+            <span><%= candidatas[i].nombre %><br><small><%= candidatas[i].curso %></small></span>
+          </label>
+        <%  } %>
+        <% }else{ %>
+          <h2 class="none-title">No se han encontrado Candidatas.</h2>
+        <% } %>
+      </div>
+
+      <button type="submit" class="btn-register"><i class="fas fa-paper-plane"></i> Enviar Voto</button>
+    </form>
+
+    <p id="mensaje-voto" class="mensaje-voto"></p>
+  </main>
+        <%- include('../partials/footer') %>
+        <script src="/js/votar.js"></script>
+</body>
+</html>

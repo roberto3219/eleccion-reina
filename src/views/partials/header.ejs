@@ -4,13 +4,14 @@
       <ul>
         <li><a href="/">Inicio</a></li>
         <li><a href="/users/listCandidatas">Candidatas</a></li>
-        <li><a href="#">Votar</a></li>
+        <li><a href="/users/votar">Votar</a></li>
         <li><a href="#">Resultados</a></li>
         <% if(!usuario) { %>
         <li><a href="/users/register">Registrarse</a></li>
         <li><a href="/users/login">Iniciar Sesion</a></li>
-        <% } %>
-        <li><a href="/users/registerCandidatas">Registrar Candidatas</a></li>
+          <%}else  if(usuario.id_rol != 1 || usuario.id_rol != 2 ) { %>
+            <li><a href="/users/registerCandidatas">Registrar Candidatas</a></li>
+          <% } %>
       </ul>
     </nav>
   </header>

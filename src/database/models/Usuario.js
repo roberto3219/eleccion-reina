@@ -22,6 +22,10 @@ module.exports =  (sequelize, DataTypes) => {
         id_rol:{
             type:DataTypes.INTEGER,
             allowNull:false,
+        },
+        voto:{
+            type:DataTypes.BOOLEAN,
+            allowNull:false,
         }
     };
     const config = {
