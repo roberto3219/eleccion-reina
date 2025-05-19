@@ -26,6 +26,8 @@ router.post("/login",userController.loadLogin)
 router.get("/registerCandidatas",userController.registerCandidatas)
 router.post("/registerCandidatas",fileUpload.single("imagenCandidata"),userController.loadRegisterCandidatas)
 router.get("/listCandidatas",userController.listCandidatas)
+router.get("/Candidata/:id",userController.candidata)
 router.get("/votar",userController.votar)
+router.post("/votar",userController.votarLoad)
 
 module.exports = router

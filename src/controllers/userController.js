@@ -3,6 +3,22 @@ const { validationResult, body } = require("express-validator")
 const db = require("../database/models/index")
 
 module.exports = {
+    candidata:async(req, res) => {
+        try{
+            const candidata = await db.Candidatas.findByPk(req.params.id,{
+                include:[
+                    { model: db.Rol, as: "roles" },
+        ]
+            })
+            res.render("candidata",{
+                candidata:candidata,
+                usuario:req.session.userLogged,
+            })
+        }catch(error){
+            console.log(error)
+            res.render("error",{ error: "Problema conectando a la base de datos"})
+        }
+    },
     register: (req, res) => {
         res.render("users/register")
     },
@@ -146,6 +162,12 @@ module.exports = {
         }
     },
     votarLoad:async (req,res) => {
-
+        try{
+            const usuario = req.session.userLogged
+            console.log(usuario)
+            
+        }catch(error){
+            console.log(e)
+        }
     }
 }
