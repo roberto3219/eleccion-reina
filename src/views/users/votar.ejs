@@ -5,6 +5,7 @@
         <%- include('../partials/header') %>
         <main class="votar">
     <h2>Elegí tu candidata a Princesa</h2>
+    <% if(usuario.id_rol != 5) { %>
     <form method="post" action="/users/votar" id="votoForm">
       <div class="grid-candidatas">
         <% if(candidatas.length > 0) { %>
@@ -18,6 +19,7 @@
         <% }else{ %>
           <h2 class="none-title">No se han encontrado Candidatas.</h2>
         <% } %>
+    <% } %>
       </div>
 
       <button type="submit" class="btn-register"><i class="fas fa-paper-plane"></i> Enviar Voto</button>

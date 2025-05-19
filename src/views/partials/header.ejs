@@ -9,9 +9,9 @@
         <% if(!usuario) { %>
         <li><a href="/users/register">Registrarse</a></li>
         <li><a href="/users/login">Iniciar Sesion</a></li>
-          <%}else  if(usuario.id_rol != 1 || usuario.id_rol != 2 ) { %>
+        <%}else  if(usuario.id_rol == 3 || usuario.id_rol == 4 ) { %>
             <li><a href="/users/registerCandidatas">Registrar Candidatas</a></li>
-          <% } %>
+        <% } %>
       </ul>
     </nav>
   </header>

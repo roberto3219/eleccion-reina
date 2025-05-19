@@ -20,14 +20,25 @@ module.exports = {
         }
     },
     register: (req, res) => {
-        res.render("users/register")
+        res.render("users/register",{ error:null,})
     },
     saveRegister: async (req, res) => {
-        let errores = validationResult(req)
-        console.log(req.body)
-        console.log(errores)
-        if(errores.isEmpty()){
-            try{
+        try{
+                let errores = validationResult(req)
+                console.log(req.body)
+                console.log(errores)
+                const correoVerificar = await db.Usuario.findOne({
+                    where: {
+                        correo: req.body.correo
+                    }
+                })
+                const dniVerificar = await db.Usuario.findOne({
+                    where:{
+                        DNI:req.body.dni
+                    }
+                })
+/*                 console.log("sdadad" + correoVerificar + "dasdasdasdsad")
+ */             if(errores.isEmpty() && correoVerificar == null && dniVerificar == null){                
                 const hashedPassword = await bcrypt.hashSync(req.body.password, 8);
                 console.log(hashedPassword)
                 console.log(req.body.password)
@@ -35,20 +46,22 @@ module.exports = {
                     nombre:req.body.nombre,
                     correo:req.body.correo,
                     contraseña: hashedPassword,
-                    id_rol: 1
+                    id_rol: 1,
+                    DNI:req.body.dni
                 })
                 res.redirect("/users/login")
-            }catch(error){
-                console.log(error)
-                res.render("error",{
-                    error:"Problema conectando a la base de datos",
-                })
-            }
-        }else{
-            console.log("Algo esta mal")
-            res.render("users/register",{
-                errores:errores.mapped(),
-                old:req.body
+                }else{
+                    console.log("Algo esta mal")
+                    res.render("users/register",{
+                        error:"Este Usuario ya existe",
+                        errores:errores.mapped(),
+                        old:req.body
+                    })
+                }
+        }catch(error){
+            console.log(error)
+            res.render("error",{
+                error:"Problema conectando a la base de datos",
             })
         }
     },
@@ -153,6 +166,7 @@ module.exports = {
     votar: async (req,res) => {
         try{
             const Candidatas = await db.Candidata.findAll()
+            console.log(req)
             res.render("users/votar",{
                     usuario: req.session.userLogged,
                     candidatas: Candidatas

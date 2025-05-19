@@ -25,7 +25,12 @@ module.exports =  (sequelize, DataTypes) => {
         },
         voto:{
             type:DataTypes.BOOLEAN,
+            allowNull:true,
+        },
+        DNI:{
+            type:DataTypes.INTEGER,
             allowNull:false,
+            unique: true,
         }
     };
     const config = {

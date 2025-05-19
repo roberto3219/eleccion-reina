@@ -10,18 +10,19 @@
       </section>
     
       <section class="candidatas">
-        <h2>Nuestras Candidatas</h2>
+        <h2>Nuestras Candidatas Mas Recientes</h2>
         <div class="cards">
+            <% if(candidatas.length > 0) { %>
+                <% for(let i = 0; i < candidatas.length; i++){ %>
           <div class="card">
-            <img src="img/candidata1.jpg" alt="Candidata 1">
-            <h3>Camila Torres</h3>
-            <p>Representando a 5to 1ra</p>
+            <img src="/images/candidatas/<%= candidatas[i].img_candidata %>" alt="Candidata <%= i %>">
+            <h3><%= candidatas[i].nombre %></h3>
+            <p>Representando a <%= candidatas[i].curso %></p>
           </div>
-          <div class="card">
-            <img src="img/candidata2.jpg" alt="Candidata 2">
-            <h3>Luz Fernández</h3>
-            <p>Representando a 5to 2da</p>
-          </div>
+                <% } %>
+            <% }else{ %>
+              <h4>No hay candidatas registradas</h4>
+            <% } %>
           <!-- Puedes seguir agregando más candidatas -->
         </div>
       </section>

@@ -4,6 +4,8 @@ const path = require("path")
 
 const userController = require("../controllers/userController")
 
+const authMiddleware = require("../middlewares/authMiddleware")
+
 const multer = require("multer");
 const multerDiskStorage = multer.diskStorage({
     destination: (req,feil,callback) => {
@@ -23,11 +25,11 @@ router.get("/register",userController.register)
 router.post("/register",userController.saveRegister)
 router.get("/login",userController.login)
 router.post("/login",userController.loadLogin)
-router.get("/registerCandidatas",userController.registerCandidatas)
-router.post("/registerCandidatas",fileUpload.single("imagenCandidata"),userController.loadRegisterCandidatas)
+router.get("/registerCandidatas",authMiddleware,userController.registerCandidatas)
+router.post("/registerCandidatas",fileUpload.single("imagenCandidata"),authMiddleware,userController.loadRegisterCandidatas)
 router.get("/listCandidatas",userController.listCandidatas)
 router.get("/Candidata/:id",userController.candidata)
-router.get("/votar",userController.votar)
-router.post("/votar",userController.votarLoad)
+router.get("/votar",authMiddleware,userController.votar)
+router.post("/votar",authMiddleware,userController.votarLoad)
 
 module.exports = router
