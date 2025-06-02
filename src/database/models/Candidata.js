@@ -1,11 +1,11 @@
 module.exports = (sequelize,DataTypes)=>{
     Alias = "Candidata"
     cols ={
-        DNI:{
+        num_candidata:{
             primaryKey:true,
             type:DataTypes.INTEGER,
             allowNull : false,
-            autoIncrement: false
+            autoIncrement: true,
         },
         nombre:{
             type:DataTypes.STRING(100),
@@ -39,11 +39,29 @@ module.exports = (sequelize,DataTypes)=>{
             type:DataTypes.STRING(45),
             allowNull:false,
         },
+        DNI:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            unique:true,
+        }
     }
     config = {
         tableName: "candidata",
         timestamps: false,
     }
     const Candidata = sequelize.define(Alias,cols,config);
+
+    Candidata.associate = (modelo) => {
+    
+        Candidata.belongsTo(modelo.Rol,{
+            as:"rol",
+            foreignKey:"id_rol",
+            timestamps:false,
+            onDelete:"CASCADE",
+            onUpdate:"CASCADE",
+        })
+
+    }
+
     return Candidata;
 }

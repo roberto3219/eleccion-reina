@@ -11,13 +11,10 @@
         <form
           action="/users/register"
           method="POST"
-        >
-        <% if(error != null || error != undefined){ %>
-        <center><p class="error_class" style="margin: 3px 5px; padding-top:20px ;"><%= error %></p></center>
-        <% } %>
-        <% if(locals.errores && errores.nombre){ %>
-          <p class="errorText"> <%= errores.nombre.msg %></p>
-        <% } %>        
+        >    
+        <% if(locals.errores && errores.dni){ %>
+    <p class="errorText"> <%= errores.dni.msg %></p>
+  <% } %>  
           <div class="input-group">
             <i class="fa-solid fa-address-card icon"></i>
               <span class="wave"></span>
@@ -27,6 +24,9 @@
               value="<%= locals.old && old.nombre ? old.nombre : '' %>"
               >    
           </div>
+          <% if(locals.errores && errores.nombre){ %>
+        <p class="errorText"> <%= errores.nombre.msg %></p>
+      <% } %>  
           <div class="input-group">
             <i class="fas fa-user icon"></i>
             <span class="wave"></span>
@@ -36,18 +36,21 @@
             value="<%= locals.old && old.nombre ? old.nombre : '' %>"
             >
           </div>
+          <% if(locals.errores && errores.correo){ %>
+            <p class="errorText"><%= errores.correo.msg %></p>
+          <% } %>
           <div class="input-group">
             <i class="fas fa-envelope icon"></i>
             <span class="wave"></span>
-            <% if(locals.errores && errores.correo){ %>
-              <p class="errorText"><%= errores.correo.msg %></p>
-            <% } %>
             <input type="email" placeholder="Correo" 
             name="correo"
             id="correo"
             value="<%= locals.old && old.correo ? old.correo : '' %>"
             >
           </div>
+          <% if(locals.errores && errores.password){ %>
+        <p class="errorText"> <%= errores.password.msg %></p>
+      <% } %>  
           <div class="input-group">
             <i class="fas fa-lock icon"></i>
             <span class="wave"></span>

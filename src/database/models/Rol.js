@@ -1,7 +1,7 @@
 module.exports =  (sequelize, DataTypes) => {
     const alias = "Rol"
     const cols = {
-        id:{
+        id_rol:{
             primaryKey:true,
             autoIncrement:true,
             type: DataTypes.INTEGER,
@@ -16,6 +16,16 @@ module.exports =  (sequelize, DataTypes) => {
         tableName:"rols",
         timestamps: false,
     }
-    const Rol = sequelize.define(alias,cols,config)
+    const Rol = sequelize.define(alias,cols,config);
+
+    Rol.associate =function (modelo){
+        Rol.hasMany(modelo.Candidata,{
+            as: "candidata",
+            foreignKey: "id_rol",
+            timestamps: false,
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+        })
+    }
     return Rol
 }

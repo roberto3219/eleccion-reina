@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../partials/head')%>
+<body>
+    <%- include('../partials/header') %>
+  <div class="containerR">
+    <table>
+      <thead>
+        <tr>
+          <th><i class="fas fa-user-tie"></i> Jurado Nº</th>
+          <th><i class="fas fa-star"></i> Belleza</th>
+          <th><i class="fas fa-crown"></i> Elegancia</th>
+          <th><i class="fas fa-heart"></i> Simpatía</th>
+          <th><i class="fas fa-calculator"></i> Total Jurado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% votos.forEach(voto => { 
+              let totalJurado = voto.belleza + voto.Elegancia + voto.Simpatia;
+              totalGeneral += totalJurado;
+        %>
+        <tr>
+          <td><%= voto.jurado_N %></td>
+          <td><%= voto.belleza %></td>
+          <td><%= voto.Elegancia %></td>
+          <td><%= voto.Simpatia %></td>
+          <td><strong><%= totalJurado %></strong></td>
+        </tr>
+        <% }) %>
+      </tbody>
+      <tfoot>
+        <tr class="resaltado">
+         <td colspan="4">Total General</td>
+          <td><strong><%= totalGeneral %></strong></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <%- include('../partials/footer') %>
+</body>
+</html>

@@ -7,6 +7,7 @@ const cors = require("cors")
 
 const mainRoutes = require("./src/routes/mainRoutes")
 const userRoutes = require("./src/routes/userRoutes")
+const candidataRoutes = require("./src/routes/candidataRoutes")
 
 app.use(cookieParser());
 
@@ -35,6 +36,7 @@ app.set("view engine", "ejs");
 
 app.use("/",mainRoutes)
 app.use("/users",userRoutes)
+app.use("/candidatas",candidataRoutes)
 
 app.use(cors())
 

@@ -5,27 +5,40 @@
 
   <header class="header">
     <h1><i class="fas fa-crown"></i> Presentación de la Candidata</h1>
-    <a href="princesas.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+    <a href="/candidatas/listCandidatas" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
   </header>
 
   <main class="candidata-container">
+<form action="/candidatas/candidata/<%= candidata.num_candidata %>" method="POST">
+    <section class="candidata-container lgt-com">
     <div class="foto">
-      <img src="img/princesa1.jpg" alt="Valentina Gómez">
+      <img src="/images/candidatas/<%= candidata.img_candidata %>" alt="<%= candidata.nombre %>">
+      <input type="hidden" value="<%= candidata.img_candidata %>" name="fotografia">
     </div>
-
     <div class="info">
-      <h2>Valentina Gómez</h2>
-      <p><strong>Número de Candidata:</strong> 01</p>
-      <p><strong>Curso:</strong> 4to 1ra</p>
-      <p><strong>Número de Jurado:</strong> #03</p>
+      <h2><input class="input_style_candidata" type="text" value="<%= candidata.nombre %>" disabled></h2>
+      <input name="candidataNombre" class="input_style_candidata" type="hidden" value="<%= candidata.nombre %>">
+
+      <p><strong>Número de Candidata:</strong><input class="input_style_candidata" type="text" value="<%= candidata.num_candidata %>" disabled></p>
+      <input name="candidataNumero" class="input_style_candidata" type="hidden" value="<%= candidata.num_candidata %>">
+
+      <p><strong>Curso:</strong> <input class="input_style_candidata" type="text" value="<%= candidata.curso %>" disabled></p>
+      <input class="input_style_candidata" name="curso" type="hidden" value="<%= candidata.curso %>">
+
+      <p><strong>Número de Jurado:</strong> #<input class="input_style_candidata" type="text" value="<%= usuario.num_jurado %>" disabled></p>
+      <input class="input_style_candidata" name="jurado_num" type="hidden" value="<%= usuario.num_jurado %>">
 
       <h3 class="subtitulo">Puntajes por Categoría</h3>
       <ul class="puntuaciones">
-        <li><i class="fas fa-star text-belleza"></i> Belleza: <span>9</span> / 10</li>
-        <li><i class="fas fa-star text-elegancia"></i> Elegancia: <span>8</span> / 10</li>
-        <li><i class="fas fa-star text-simpatia"></i> Simpatía: <span>10</span> / 10</li>
+        <li><i class="fas fa-star text-belleza"></i> Belleza: <span><input class="input_style_candidata" name="belleza" type="number" min="5" max="10" required></span> / 10</li>
+        <li><i class="fas fa-star text-elegancia"></i> Elegancia: <span><input class="input_style_candidata" name="elegancia" type="number" min="5" max="10" required></span> / 10</li>
+        <li><i class="fas fa-star text-simpatia"></i> Simpatía: <span><input class="input_style_candidata" name="simpatia" type="number" min="5" max="10" required></span> / 10</li>
       </ul>
+      <input class="input-submit-candidata"  type="submit" value="Enviar">
     </div>
+    </section>
+</form>
+
   </main>
 
   <footer class="footer">

@@ -31,6 +31,9 @@ module.exports =  (sequelize, DataTypes) => {
             type:DataTypes.INTEGER,
             allowNull:false,
             unique: true,
+        },
+        num_jurado:{
+            type:DataTypes.INTEGER,
         }
     };
     const config = {

@@ -11,6 +11,65 @@
     height: 100%;
   }
   
+
+/* RESULTADO */
+
+.containerR {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.containerR h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.containerR table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.containerR table thead {
+  background-color: #007BFF;
+  color: white;
+}
+
+.containerR th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.containerR tfoot {
+  font-weight: bold;
+  background: #f0f0f0;
+}
+
+.containerR .resaltado {
+  background-color: #e0ffe0;
+}
+
+.containerR .btn-volver {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.containerR .btn-volver:hover {
+  background-color: #0056b3;
+}
+
+
 /* Candidata */
 .header {
   background: #6a11cb;
@@ -19,7 +78,24 @@
   text-align: center;
   position: relative;
 }
-
+.input-submit-candidata{
+  background: #6a11cb;
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 4px;
+  padding: 8px 30px;
+  border-radius: 5px;
+}
+.input_style_candidata{
+  border: none;
+  border-bottom: 1px solid black;
+  color: #4e0fc5;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
 .header h1 {
   margin-bottom: 0.5rem;
 }
@@ -45,6 +121,9 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem 1rem;
+}
+.lgt-com{
+  width: 600px;
 }
 
 @media (min-width: 768px) {

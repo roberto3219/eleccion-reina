@@ -28,6 +28,7 @@ window.addEventListener("load",function(){
             errores.push("El nombre debe tener al menos 4 caracteres");
           }
           console.log(password.value.length)
+          
           if (
             correo.value == "" ||
             correo.value == null ||

@@ -3,14 +3,19 @@
     <nav>
       <ul>
         <li><a href="/">Inicio</a></li>
-        <li><a href="/users/listCandidatas">Candidatas</a></li>
-        <li><a href="/users/votar">Votar</a></li>
-        <li><a href="#">Resultados</a></li>
+        <li><a href="/candidatas/listCandidatas">Candidatas</a></li>
+        <li><a href="/candidatas/votar">Votar</a></li>
         <% if(!usuario) { %>
-        <li><a href="/users/register">Registrarse</a></li>
-        <li><a href="/users/login">Iniciar Sesion</a></li>
-        <%}else  if(usuario.id_rol == 3 || usuario.id_rol == 4 ) { %>
-            <li><a href="/users/registerCandidatas">Registrar Candidatas</a></li>
+          <li><a href="/users/register">Registrarse</a></li>
+          <li><a href="/users/login">Iniciar Sesion</a></li>
+        <% }else {  %>
+          <%if(usuario.id_rol == 3 || usuario.id_rol == 4 ) { %>
+            <li><a href="/candidatas/registerCandidatas">Registrar Candidatas</a></li>
+          <% } %>
+          <% if(usuario.id_rol == 3 || usuario.id_rol == 4 || usuario.id_rol == 5){ %>
+          <li><a href="/candidatas/resultados">Resultados de las candidatas</a></li>
+          <li><a href="/candidatas/resultadoTotal">Resultados Totales</a></li>
+          <% } %>
         <% } %>
       </ul>
     </nav>
